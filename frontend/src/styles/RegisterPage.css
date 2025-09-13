@@ -1,0 +1,389 @@
+.register-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: #0a0a0a;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Animated Background */
+.register-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.gradient-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.gradient-1,
+.gradient-2,
+.gradient-3 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    animation: float 20s ease-in-out infinite;
+}
+
+.gradient-1 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.gradient-2 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(45deg, #45aaf2, #3867d6);
+    bottom: -50px;
+    right: -100px;
+    animation-delay: -7s;
+}
+
+.gradient-3 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, #a55eea, #fd9644);
+    top: 50%;
+    left: 70%;
+    animation-delay: -14s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+.register-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 500px;
+}
+
+.register-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #a0aec0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
+.register-subtitle {
+    color: #a0aec0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Error Message */
+.error-message {
+    background: rgba(254, 215, 215, 0.1);
+    border: 1px solid rgba(254, 215, 215, 0.2);
+    color: #fc8181;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+}
+
+.error-icon {
+    font-size: 1.1rem;
+}
+
+/* Form Styles */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-grid .input-group:nth-child(1),
+.form-grid .input-group:nth-child(2),
+.form-grid .input-group:nth-child(3) {
+    grid-column: span 1;
+}
+
+.form-grid .input-group:nth-child(4),
+.form-grid .input-group:nth-child(5) {
+    grid-column: span 2;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: #a0aec0;
+    font-size: 0.8rem;
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: rgba(10, 10, 10, 0.8);
+    padding: 0 0.5rem;
+    border-radius: 6px;
+    z-index: 2;
+}
+
+.input-group.focused label,
+.input-group.has-value label {
+    top: -0.5rem;
+    left: 0.75rem;
+    font-size: 0.7rem;
+    color: #4299e1;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.input-group input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.input-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #4299e1, #9f7aea);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.input-group.focused .input-border {
+    width: 100%;
+}
+
+/* Register Button */
+.register-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    padding: 1.25rem 2rem;
+    border-radius: 16px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    grid-column: span 2;
+}
+
+.register-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.register-button:hover::before {
+    left: 100%;
+}
+
+.register-button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 10px 30px rgba(102, 126, 234, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.register-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.button-text {
+    position: relative;
+    z-index: 2;
+}
+
+.button-icon {
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.register-button:hover .button-icon {
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.register-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-text {
+    color: #a0aec0;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.login-link {
+    color: #4299e1;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: #63b3ed;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .register-card {
+        padding: 2rem;
+        margin: 0.5rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .form-grid .input-group:nth-child(4),
+    .form-grid .input-group:nth-child(5),
+    .register-button {
+        grid-column: span 1;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    .register-button {
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* Scrollbar for the card */
+.register-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.register-card::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.register-card::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.register-card::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
